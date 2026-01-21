@@ -1,0 +1,39 @@
+{
+  "commandStructure": {
+    "order": [
+      "sessionArgs",
+      "formatArgs",
+      "systemPromptArgs",
+      "agentArgs",
+      "customArgs",
+      "prompt"
+    ],
+    "sessionArgs": {
+      "enabled": true,
+      "args": ["--resume", "{{sessionId}}"],
+      "requiredCondition": "sessionId"
+    },
+    "formatArgs": {
+      "enabled": true,
+      "args": ["--output-format", "json", "--verbose"]
+    },
+    "systemPromptArgs": {
+      "enabled": true,
+      "args": ["--system-prompt", "{{systemPrompt}}"],
+      "requiredCondition": "systemPrompt"
+    },
+    "agentArgs": {
+      "enabled": true,
+      "source": "agent.additionalArgs",
+      "splitBy": " "
+    },
+    "customArgs": {
+      "enabled": true,
+      "source": "params.additionalArgs"
+    },
+    "prompt": {
+      "enabled": true,
+      "source": "params.command"
+    }
+  }
+}
