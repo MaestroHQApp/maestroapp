@@ -3,4 +3,6 @@
 Thumbs.db
 
 # Meastro
-*/projects/*
+/projects/*
+/mcp-server/dist/*
+/mcp-server/node_modules/
