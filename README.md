@@ -1,36 +1,40 @@
-# Maestro - AIオーケストレーションアプリ
+# Maestro - AI Orchestration App
+
+<p align="center">
+  <strong>English</strong> | <a href="./README.ja.md">日本語</a>
+</p>
 
 <p align="center">
   <a href="https://www.youtube.com/watch?v=2qgNvVog4os">
-    <img src="https://img.youtube.com/vi/2qgNvVog4os/maxresdefault.jpg" alt="Maestro デモ動画" width="600">
+    <img src="https://img.youtube.com/vi/2qgNvVog4os/maxresdefault.jpg" alt="Maestro Demo Video" width="600">
   </a>
   <br>
-  <em>▶ クリックして動画を再生</em>
+  <em>▶ Click to play video</em>
 </p>
 
 ---
 
-## 目次
-- [GetStarted](#getstarted)
-- [Maestroとは](#maestroとは)
-- [セキュリティとプライバシー](#セキュリティとプライバシー)
-- [主な機能](#主な機能)
-- [システム要件](#システム要件)
-- [フォルダ構成](#フォルダ構成)
-- [MCPサーバーの設定](#mcpサーバーの設定)
+## Table of Contents
+- [Getting Started](#getting-started)
+- [What is Maestro?](#what-is-maestro)
+- [Security & Privacy](#security--privacy)
+- [Key Features](#key-features)
+- [System Requirements](#system-requirements)
+- [Folder Structure](#folder-structure)
+- [MCP Server Setup](#mcp-server-setup)
 
 ---
 
-## GetStarted
+## Getting Started
 
-1. **リポジトリをクローン (もしくは zip 形式でダウンロード)**
+1. **Clone the repository (or download as zip)**
 
    ```bash
    git clone https://github.com/MaestroHQApp/maestroapp.git
    cd maestroapp
    ```
 
-2. **MCPサーバーのセットアップ**
+2. **Set up the MCP server**
 
    ```bash
    cd mcp-server
@@ -38,172 +42,166 @@
    npm run build
    ```
 
-3. **アプリを起動**
+3. **Launch the app**
 
-   `Maestro.app` をダブルクリックして起動します。
+   Double-click `Maestro.app` to launch.
 
-4. **ディレクトリを選択**
+4. **Select a directory**
 
-   ![ディレクトリ選択画面](images/GetStarted_selectdir.png)
+   ![Select Directory](images/GetStarted_selectdir.png)
 
-5. **タスクを作成**
+5. **Create a task**
 
-   ![タスク作成画面](images/GetStarted_task.png)
+   ![Create Task](images/GetStarted_task.png)
 
-6. **BOSS AIに指示**
+6. **Give instructions to BOSS AI**
 
-   下記のプロンプトを実行してください。Maestro の全ての機能が実現できます。
+   Run the following prompt to experience all of Maestro's capabilities:
 
    ```
-   2026年のAI活用について議論してください。
-   ディスカッションに参加するエージェントを複数してください。
-   あなたはMCとして議論を進めてください。
-   各分野の専門家、一般人としてのエージェント。それぞれ参加して意見を述べてください。
-   チームメモ、この作業のためのTODOを登録してディスカッションを開始してください。
+   Please discuss AI usage in 2026. Create multiple agents to participate in the discussion. Please act as the MC (Moderator) and lead the discussion. Include agents representing experts from various fields and the general public. Have each of them participate and state their opinions. Register a Team Memo and TODOs for this task, and then start the discussion.
    ```
 
-   ![BOSS AIへの指示画面](images/GetStarted_toboss.png)
+   ![Instruct BOSS AI](images/GetStarted_toboss.png)
 
 ---
 
+## What is Maestro?
 
-## Maestroとは
+**Maestro** is a macOS desktop application that enables you to manage and operate multiple AI agents (AI assistants) as a unified team.
 
-**Maestro**（マエストロ）は、複数のAIエージェント（AI assistants）を1つのチームとして管理・運用できるmacOS向けデスクトップアプリケーションです。
+Like an orchestra conductor, Maestro coordinates multiple AIs to efficiently handle complex tasks.
 
-まるでオーケストラの指揮者のように、複数のAIを連携させて、複雑なタスクを効率的に処理できます。
+### Who is this for?
 
-### こんな方におすすめ
-
-- AIを活用した作業を効率化したい方
-- 複数のAIに異なる役割を持たせて協働させたい方
-- プロジェクト管理とAI活用を組み合わせたい方
-- チームでAIを活用したワークフローを構築したい方
-
----
-
-## セキュリティとプライバシー
-
-Maestroはユーザーのプライバシーとセキュリティを重視して設計されています。
-
-| 項目 | 説明 |
-|------|------|
-| **データ送信** | Maestroアプリ自体はネットワーク通信を行いません |
-| **AI通信** | 全てのAI通信はClaude CLI（Claude Code）を経由して行われます |
-| **ローカル実行** | 設定ファイル、ログ、プロジェクトデータは全てローカルに保存されます |
-| **データベース** | 会話履歴・タスク情報はローカルのSQLiteデータベースに保存されます |
-| **外部サーバー** | Maestro独自のサーバーへの接続はありません |
-
-> **セキュリティポイント**: MaestroはClaude CLIを利用するデスクトップアプリとして動作します。AIとの通信は全てClaude CLI経由で行われ、Maestroアプリが独自にAnthropicサーバーや外部サービスと通信することはありません。
+- Those who want to streamline AI-powered workflows
+- Those who want multiple AIs with different roles working together
+- Those who want to combine project management with AI capabilities
+- Teams building AI-powered collaborative workflows
 
 ---
 
-## 主な機能
+## Security & Privacy
 
-### 1. BOSS エージェントへの依頼
-オーケストレーションの全てはBOSSエージェントの指示から開始されます。
-あなたはBOSSエージェントに指示するだけです。
-AIチーム編成、スケジュール管理、チームの作業状況メモ、プロセスの管理
+Maestro is designed with user privacy and security as top priorities.
 
-- BOSSがタスクを分解して必要なワーカーを作成
-- プロセスの定義
-- スケジュールの管理
-- 作業進捗の管理、あなたに報告
+| Item | Description |
+|------|-------------|
+| **Data Transmission** | The Maestro app itself does not perform any network communication |
+| **AI Communication** | All AI communication goes through Claude CLI (Claude Code) |
+| **Local Execution** | Configuration files, logs, and project data are all stored locally |
+| **Database** | Conversation history and task information are stored in a local SQLite database |
+| **External Servers** | No connections to Maestro-specific servers |
 
-人間の介入なしに、AIチームが自律的に作業を進めます。
+> **Security Note**: Maestro operates as a desktop app that harnesses Claude CLI. All AI communication is routed through Claude CLI, and the Maestro app does not independently communicate with Anthropic servers or external services.
 
-![BOSS AIへの指示画面](images/GetStarted_toboss.png)
+---
 
-### 2. AIエージェントの並列実行、相互コミュニケーション
+## Key Features
 
-エージェント間のやり取りをリアルタイムで監視できます。
+### 1. Request to BOSS Agent
 
-- 全エージェントの会話履歴を一覧表示
-- どのエージェントが何を処理しているか可視化
-- 必要に応じて人間が介入可能
+All orchestration begins with instructions to the BOSS agent.
+You simply give instructions to the BOSS agent.
+AI team formation, schedule management, team work status memos, and process management.
 
-### 3. AIエージェントチームの編成
+- BOSS breaks down tasks and creates necessary workers
+- Process definition
+- Schedule management
+- Progress management and reporting to you
 
-複数のAIエージェントを作成し、それぞれに役割を割り当てることができます。
-BOSSエージェントに任せて作ることができます。
-またユーザーが作成、編集することもできます。
+The AI team works autonomously without human intervention.
 
-| 役割 | 説明 |
-|------|------|
-| **BOSS（リーダー）** | チームを統括し、タスクの割り振りを行います |
-| **Worker（作業者）** | 具体的なタスクを実行します |
+![Instruct BOSS AI](images/GetStarted_toboss.png)
+
+### 2. Parallel Execution & Inter-Agent Communication
+
+Monitor interactions between agents in real-time.
+
+- View conversation history of all agents
+- Visualize which agent is processing what
+- Human intervention when needed
+
+### 3. AI Agent Team Formation
+
+Create multiple AI agents and assign roles to each.
+You can let the BOSS agent create them.
+You can also create and edit them manually.
+
+| Role | Description |
+|------|-------------|
+| **BOSS (Leader)** | Oversees the team and assigns tasks |
+| **Worker** | Executes specific tasks |
 
 ![AI Team](images/aiteam.png)
 
+### 4. Progress Management
 
-### 4. 進捗管理
-
-タスクの進捗はガントチャートで確認できます。
-各エージェントの作業状況をBOSSエージェントが管理します。
+Track task progress with Gantt charts.
+The BOSS agent manages the work status of each agent.
 
 ![Gantt Chart](images/gantt.png)
 
-### 5. AIチームの思考プロセス
+### 5. AI Team Thought Process
 
-AIチームがどのようにタスクを進めているか、タスク毎に作成されるチームメモで確認できます。
-チーム間の重要な情報、反省点。ノウハウはタスクメモとして今後の改善などにも活用できます。
+See how the AI team is progressing on tasks through team memos created for each task.
+Important information between teams, lessons learned, and know-how can be utilized as task memos for future improvements.
 
-![Gantt Chart](images/teammemo.png)
-
-
----
-
-## システム要件
-
-### 対応OS
-
-| OS | バージョン | 対応状況 |
-|----|----------|---------|
-| macOS | 11.0 (Big Sur) 以降 | 対応 |
-| Windows | - | ⏳ 今後対応予定 |
-| Linux | - | ⏳ 今後対応予定 |
-
-> **注意**: Intel Mac (x64) には現在対応していません。Apple Silicon Mac専用です。
-
-### ソフトウェア要件
-
-| ソフトウェア | 必須/任意 | 説明 |
-|-------------|----------|------|
-| **Claude CLI** | 必須 | Anthropic社のClaude CLI |
-| **Node.js** | 必須 | MCPサーバーの実行に必要（v18以上推奨） |
+![Team Memo](images/teammemo.png)
 
 ---
 
-## フォルダ構成
+## System Requirements
 
-配布パッケージは以下の構成になっています。**全てのファイル・フォルダを同じディレクトリに配置してください。**
+### Supported OS
+
+| OS | Version | Support Status |
+|----|---------|----------------|
+| macOS | 11.0 (Big Sur) or later | Supported |
+| Windows | - | Coming soon |
+| Linux | - | Coming soon |
+
+> **Note**: Intel Mac (x64) is not currently supported. Apple Silicon Mac only.
+
+### Software Requirements
+
+| Software | Required/Optional | Description |
+|----------|-------------------|-------------|
+| **Claude CLI** | Required | Anthropic's Claude CLI |
+| **Node.js** | Required | Required to run MCP server (v18+ recommended) |
+
+---
+
+## Folder Structure
+
+The distribution package has the following structure. **All files and folders must be placed in the same directory.**
 
 ```
 maestro/
-├── Maestro.app              # メインアプリケーション
-├── mcp-server/              # MCPサーバー（必須）
-│   ├── dist/                # ビルド済みJavaScript
-│   ├── node_modules/        # 依存パッケージ（同梱済み）
+├── Maestro.app              # Main application
+├── mcp-server/              # MCP server (required)
+│   ├── dist/                # Built JavaScript
+│   ├── node_modules/        # Dependencies (included)
 │   └── package.json
-├── ai_agents.json           # AIエージェント設定
-├── ai_templates/            # AIテンプレート
+├── ai_agents.json           # AI agent configuration
+├── ai_templates/            # AI templates
 │   └── claude/
 │       ├── config.json
 │       ├── system_prompts/
 │       └── command_templates/
-└── workflow_templates.json  # ワークフローテンプレート
+└── workflow_templates.json  # Workflow templates
 ```
 
-> ⚠️ **重要**: `Maestro.app`と同じディレクトリに`mcp-server`フォルダ、`ai_agents.json`、`ai_templates`フォルダが存在する必要があります。
+> **Important**: The `mcp-server` folder, `ai_agents.json`, and `ai_templates` folder must exist in the same directory as `Maestro.app`.
 
 ---
 
-## MCPサーバーの設定
+## MCP Server Setup
 
-MaestroはMCPサーバーを使用してAIエージェント間の通信を管理します。
+Maestro uses the MCP server to manage communication between AI agents.
 
-### MCPサーバーについて
+### About MCP Server
 
-- **Node.jsは必要**: `node`コマンドが実行できる環境が必要です
-- **アーキテクチャ依存**: 本パッケージはApple Silicon (arm64) 専用です
-- **開発環境**: `cd mcp-server && npm install && npm run build` でセットアップ
+- **Node.js is required**: You need an environment where `node` command can be executed
+- **Architecture dependent**: This package is for Apple Silicon (arm64) only
+- **Development environment**: Set up with `cd mcp-server && npm install && npm run build`
