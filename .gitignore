@@ -1,8 +1,0 @@
-# OS files
-.DS_Store
-Thumbs.db
-
-# Meastro
-/projects/*
-/mcp-server/dist/*
-/mcp-server/node_modules/
